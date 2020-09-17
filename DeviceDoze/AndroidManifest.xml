@@ -28,33 +28,36 @@
 
     <uses-sdk
         android:minSdkVersion="24"
-        android:targetSdkVersion="24"/>
+        android:targetSdkVersion="30"/>
 
     <application
         android:label="@string/device_settings_app_name"
-        android:persistent="true"
-        android:defaultToDeviceProtectedStorage="true"
-        android:directBootAware="true">
+        android:persistent="true">
 
-        <receiver android:name=".BootCompletedReceiver">
+        <receiver android:name=".BootCompletedReceiver"
+                  android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
         <service android:name=".DozeService"
-                 android:permission="DeviceDozeService">
+                 android:permission="DeviceDozeService"
+                 android:exported="true">
         </service>
 
         <activity
             android:name=".DozeSettingsActivity"
+            android:exported="false"
             android:label="@string/ambient_display_title"
-            android:theme="@style/Theme.Main">
+            android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
-                <action android:name="com.my.device.parts.DOZE_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
         </activity>
         
         <service

@@ -37,6 +37,19 @@
     <string name="vibration_title">Umpan balik getaran</string>
     <string name="vibration_strength_title">Kekuatan</string>
 
+    <!-- Thermal Profiles -->
+    <string name="thermal_profile_title">Suhu</string>
+    <string name="thermal_title">Setelan suhu</string>
+    <string name="thermal_summary">Pilih profil suhu</string>
+    <string name="thermal_dialogTitle">Pilih profil suhu yang anda sukai</string>
+
+    <!-- Values for Thermal Presets -->
+    <string name="thermal_performance">Performa</string>
+    <string name="thermal_battery">Baterai</string>
+    <string name="thermal_gaming">Gaming</string>
+    <string name="thermal_balance">Seimbang</string>
+    <string name="thermal_extreme_battery">Hemat baterai ekstrim</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Mi Sound Enhancer</string>
     <string name="dirac_summary">Optimalkan kualitas audio</string>
@@ -119,7 +132,7 @@
     <!-- CustomSeekBarPreference -->
     <string name="edit_value">Pilih nilai baru</string>
     <string name="default_value">Nilai bawaan</string>
-    <string name="edit_hint">Nilai antara %1$d dan %2$d</string>
+    <string name="edit_hint" formatted="false">Nilai antara %1$d dan %2$d</string>
 
     <!-- FPS Info -->
     <string name="fps_info_title">FPS Overlay</string>

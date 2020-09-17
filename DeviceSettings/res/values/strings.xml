@@ -28,7 +28,7 @@
 
     <!-- Notification LED brightness -->
     <string name="notification_title">Notification LED</string>
-    <string name="notification_led_title">LED brightness</string>
+    <string name="notification_led_title">LED Brightness</string>
 
     <!-- Ambient Display -->
     <string name="ambient_display">Ambient Display</string>
@@ -36,6 +36,25 @@
 
     <string name="vibration_title">Haptic Feedback</string>
     <string name="vibration_strength_title">Strength</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_profile_title">Thermal</string>
+    <string name="thermal_title">Thermal Settings</string>
+    <string name="thermal_summary">Choose your Thermal Profile</string>
+    <string name="thermal_dialogTitle">Choose your Thermal Profile</string>
+
+    <!-- Values for Thermal Presets -->
+    <string name="thermal_performance">Performance</string>
+    <string name="thermal_battery">Battery</string>
+    <string name="thermal_gaming">Gaming</string>
+    <string name="thermal_balance">Balance</string>
+    <string name="thermal_extreme_battery">Extreme Battery</string>
+    <string name="thermal_default">Default</string>
+    <string name="thermal_benchmark">Benchmark</string>
+    <string name="thermal_browser">Browser</string>
+    <string name="thermal_camera">Camera</string>
+    <string name="thermal_dialer">Dialer</string>
+    <string name="thermal_youtube">Youtube</string>
 
     <!-- kcal -->
     <string name="advanced_settings_kcal">Display Color Calibration</string>
@@ -61,12 +80,11 @@
     <!-- Clear Speaker -->
     <string name="clear_speaker_title">Clear speaker</string>
     <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
-    <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.\n\nWARNING: Ensure that any headphones are unplugged.</string>
+    <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.</string>
 
     <string name="presets_dialog_title">Select Preset</string>
     <!-- Presets -->
     <string name="preset_default">Default</string>
-    <string name="preset_burnin_lavender">Burn-in protection (lavender)</string>
     <string name="preset_version_1">Version 1</string>
     <string name="preset_version_2">Version 2</string>
     <string name="preset_version_3">Version 3</string>
@@ -85,7 +103,7 @@
     <!-- CustomSeekBarPreference -->
     <string name="edit_value">Choose new value</string>
     <string name="default_value">Default value</string>
-    <string name="edit_hint">Value between %1$d and %2$d</string>
+    <string name="edit_hint">Value between %1$d - %2$d</string>
 
     <!-- FPS Info -->
     <string name="fps_info_title">FPS Overlay</string>
@@ -143,11 +161,5 @@
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
     <string name="dirac_preset_bass_booster">Bass Booster</string>
-    <string name="dirac_preset_live">Live</string>
-    <string name="dirac_preset_balanced">Balanced</string>
-    <string name="dirac_preset_bass_reduction">Bass Reduction</string>
-    <string name="dirac_preset_treble_reduction">Treble Reduction</string>
-    <string name="dirac_preset_soft_bass">Soft Bass</string>
-    <string name="dirac_preset_soft_treble">Soft Treble</string>
 
 </resources>

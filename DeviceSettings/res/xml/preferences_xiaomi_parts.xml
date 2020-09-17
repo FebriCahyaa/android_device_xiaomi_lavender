@@ -15,6 +15,7 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <PreferenceCategory
         android:key="vibration"
         android:title="@string/vibration_title">
@@ -39,7 +40,7 @@
             app:units="%"
             android:defaultValue="100" />
     </PreferenceCategory>
-
+    
     <PreferenceCategory
        android:key="audio_amplify"
        android:title="@string/audio_amplify">
@@ -51,7 +52,7 @@
             app:min="-10"
             android:icon="@drawable/ic_earpiece"
             android:title="@string/earpiece_gain"/>
-
+        
         <org.lineageos.settings.device.preferences.CustomSeekBarPreference
             android:defaultValue="0"
             android:key="headphone_gain"
@@ -68,7 +69,7 @@
             android:icon="@drawable/ic_mic"
             android:title="@string/mic_gain"/>
     </PreferenceCategory>
-
+    
     <PreferenceCategory
         android:key="audio"
         android:title="@string/audio_title">
@@ -149,6 +150,21 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="speaker"
+        android:title="@string/speaker_category">
+
+        <Preference
+            android:key="clear_speaker_settings" 
+            android:title="@string/clear_speaker_title"
+            android:icon="@drawable/ic_speaker_cleaner_icon" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.xiaomi.parts.speaker.ClearSpeakerActivity"
+                android:targetPackage="com.xiaomi.parts.speaker" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="thermal_profile"
         android:title="@string/thermal_profile_title">
 
@@ -164,18 +180,4 @@
             android:icon="@drawable/ic_thermal" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="speaker"
-        android:title="@string/speaker_category">
-
-        <Preference
-            android:key="clear_speaker_settings"
-            android:title="@string/clear_speaker_title"
-            android:icon="@drawable/ic_speaker_cleaner_icon" >
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="com.xiaomi.parts.speaker.ClearSpeakerActivity"
-                android:targetPackage="com.xiaomi.parts.speaker" />
-        </Preference>
-      </PreferenceCategory>
 </PreferenceScreen>

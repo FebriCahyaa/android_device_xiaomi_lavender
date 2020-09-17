@@ -23,6 +23,7 @@ import android.provider.Settings;
 
 import org.lineageos.settings.device.kcal.Utils;
 import org.lineageos.settings.device.preferences.SecureSettingSwitchPreference;
+import org.lineageos.settings.device.thermal.ThermalUtils;
 
 import java.lang.Math.*;
 
@@ -78,6 +79,10 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         FileUtils.setValue(DeviceSettings.VIBRATION_STRENGTH_PATH, Settings.Secure.getInt(
                 context.getContentResolver(), DeviceSettings.PREF_VIBRATION_STRENGTH, 80) / 100.0 * (DeviceSettings.MAX_VIBRATION - DeviceSettings.MIN_VIBRATION) + DeviceSettings.MIN_VIBRATION);
 
+        // Thermal
+        FileUtils.setValue(DeviceSettings.THERMAL_PATH, Settings.Secure.getInt(context.getContentResolver(),
+                DeviceSettings.PREF_THERMAL, 0));
+
         // Dirac
         context.startService(new Intent(context, DiracService.class));
 
@@ -86,6 +91,9 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
                 DeviceSettings.PREF_KEY_FPS_INFO, 0) == 1;
         if (enabled) {
             context.startService(new Intent(context, FPSInfoService.class));
+
+        // Thermal
+        ThermalUtils.startService(context);
         }
     }
 }

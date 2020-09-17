@@ -38,11 +38,11 @@ public class DeviceSettings extends PreferenceFragment implements
 
     public static final String CATEGORY_VIBRATOR = "vibration";
     public static final String PREF_VIBRATION_STRENGTH = "vibration_strength";
-    public static final String VIBRATION_STRENGTH_PATH = "/sys/module/qti_haptics/parameters/vmax_mv_override";
+    public static final String VIBRATION_STRENGTH_PATH = "/sys/devices/virtual/timed_output/vibrator/vtg_level";
 
     public static final String CATEGORY_NOTIF = "notification_led";
     public static final String PREF_NOTIF_LED = "notification_led_brightness";
-    public static final String NOTIF_LED_PATH = "/sys/class/leds/red/max_brightness";
+    public static final String NOTIF_LED_PATH = "/sys/class/leds/white/max_brightness";
 
     public static final  String CATEGORY_AUDIO_AMPLIFY = "audio_amplify";
     public static final  String PREF_EARPIECE_GAIN = "earpiece_gain";
@@ -70,6 +70,9 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String PREF_DEVICE_DOZE = "device_doze";
     private static final String PREF_DEVICE_KCAL = "device_kcal";
 
+    public static final String PREF_THERMAL = "thermal";
+    public static final String THERMAL_PATH = "/sys/devices/virtual/thermal/thermal_message/sconfig";
+
     private static final String DEVICE_DOZE_PACKAGE_NAME = "com.advanced.settings.doze";
 
     private static final String DEVICE_JASON_PACKAGE_NAME = "org.lineageos.settings.devicex";
@@ -81,6 +84,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private SecureSettingSwitchPreference mEnableDirac;
     private SecureSettingListPreference mHeadsetType;
     private SecureSettingListPreference mPreset;
+    private SecureSettingListPreference mTHERMAL;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -92,6 +96,7 @@ public class DeviceSettings extends PreferenceFragment implements
             startActivity(intent);
             return true;
         });
+
 
         // LED Brightness
         if (FileUtils.fileWritable(NOTIF_LED_PATH)) {
@@ -150,6 +155,12 @@ public class DeviceSettings extends PreferenceFragment implements
             startActivity(intent);
             return true;
         });
+
+        // Thermal Switch
+        mTHERMAL = (SecureSettingListPreference) findPreference(PREF_THERMAL);
+        mTHERMAL.setValue(FileUtils.getValue(THERMAL_PATH));
+        mTHERMAL.setSummary(mTHERMAL.getEntry());
+        mTHERMAL.setOnPreferenceChangeListener(this);
 
         // Dirac
         boolean enhancerEnabled;
@@ -241,6 +252,12 @@ public class DeviceSettings extends PreferenceFragment implements
                 }
                 break;
 
+            case PREF_THERMAL:
+                mTHERMAL.setValue((String) value);
+                mTHERMAL.setSummary(mTHERMAL.getEntry());
+                FileUtils.setValue(THERMAL_PATH, (String) value);
+                break;
+                
             default:
                 break;
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 The Xiaomi-SDM660 Project
+<!-- Copyright (C) 2018-2021 The Xiaomi-SDM660 Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -20,13 +20,13 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <uses-sdk
         android:minSdkVersion="27"
         android:targetSdkVersion="30"/>
 
     <application
-        android:directBootAware="true"
         android:label="@string/advanced_settings"
         android:supportsRtl="true"
         android:theme="@style/Theme.SubSettingsBase">
@@ -36,7 +36,7 @@
             android:directBootAware="true"
             android:enabled="true"
             android:exported="true">
-            <intent-filter android:priority="999">
+            <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
 
@@ -48,12 +48,17 @@
         <activity
             android:name=".DeviceSettingsActivity"
             android:exported="true"
-            android:label="@string/advanced_settings">
+            android:label="@string/advanced_settings"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.android.settings.dismiss"
+                android:value="9,13,30" />
             <meta-data
                 android:name="com.android.settings.icon"
                 android:resource="@drawable/ic_mi"/>
@@ -75,6 +80,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".PerformanceTileService"
+            android:icon="@drawable/thermal_balance"
+            android:label="@string/thermal_balance"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
         
         <activity
             android:name=".speaker.ClearSpeakerActivity" 
@@ -107,5 +122,28 @@
             android:name=".DiracService"
             android:enabled="true"
             android:stopWithTask="false" />
+
+        <activity
+            android:name=".thermal.ThermalActivity"
+            android:label="@string/thermal_title"
+            android:theme="@style/Theme.SubSettingsBase">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.battery" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/thermal_summary" />
+            <meta-data
+                android:name="com.android.settings.order"
+                android:value="1" />
+        </activity>
+
+        <service
+            android:name=".thermal.ThermalService"
+            android:permission="ThermalService">
+        </service>
     </application>
 </manifest>

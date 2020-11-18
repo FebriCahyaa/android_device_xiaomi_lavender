@@ -200,9 +200,12 @@ PRODUCT_PACKAGES += \
     gralloc.sdm660 \
     hwcomposer.sdm660 \
     memtrack.sdm660 \
-    libdisplayconfig \
     libqdMetaData \
     libqdMetaData.system \
+    libdisplayconfig \
+    libdisplayconfig.qti \
+    libdisplayconfig.qti.vendor \
+    libstagefright_enc_common \
     libtinyxml \
     vendor.display.config@1.9 \
     vendor.display.config@1.9_vendor

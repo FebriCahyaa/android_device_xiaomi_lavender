@@ -199,6 +199,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.ms=android-xiaomi-rev2
 
+# Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.egl=adreno \
+    ro.hardware.vulkan=adreno
+
 # HAL1 apps list
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.hal1.packagelist=com.android.camera,com.android.camera2,com.instagram.android \

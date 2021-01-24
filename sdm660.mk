@@ -596,3 +596,17 @@ PRODUCT_PACKAGES += \
 # WiFi Display JAR
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# XiaomiParts
+PRODUCT_PACKAGES += \
+    XiaomiParts \
+    init.gpuboost.rc \
+    init.gpuboost.sh \
+    init.cpuboost.rc \
+    init.cpuboost.sh \
+    init.parallax.rc \
+    init.parallax.sh \
+    init.spectrum.rc \
+    init.spectrum.sh \
+    init.camera.rc \
+    init.camera.sh

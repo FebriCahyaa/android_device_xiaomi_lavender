@@ -607,6 +607,10 @@ PRODUCT_PACKAGES += \
     init.parallax.rc \
     init.parallax.sh \
     init.spectrum.rc \
-    init.spectrum.sh \
-    init.camera.rc \
-    init.camera.sh
+    init.spectrum.sh
+    
+# TucumãSettings
+PRODUCT_PACKAGES += \
+    TucumaSettings \
+    init.camera.sh \
+    init.camera.rc

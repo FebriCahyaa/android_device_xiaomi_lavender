@@ -45,6 +45,9 @@ $(call inherit-product-if-exists, vendor/gapps/common/common-vendor.mk)
 # Common Tree Path
 COMMON_PATH := device/xiaomi/sdm660-common
 
+# Inherit properties (system/build.prop)
+TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+
 # A/B
 ifeq ($(ENABLE_AB), true)
 AB_OTA_POSTINSTALL_CONFIG += \

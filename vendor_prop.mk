@@ -102,7 +102,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.privapp.list=org.codeaurora.snapcam \
     persist.sys.camera.camera2=true \
-    persist.vendor.camera.privapp.list=org.codeaurora.snapcam \
     persist.vendor.camera.preview.ubwc=0 \
     persist.vendor.camera.isp.clock.optmz=0 \
     persist.vendor.camera.isp.turbo=1 \
@@ -133,7 +132,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.use_buffer_age=false \
     dev.pm.dyn_samplingrate=1 \
     persist.demo.hdmirotationlock=false \
-    persist.hwc.enable_vds=1 \
     ro.opengles.version=196610 \
     ro.sf.lcd_density=403 \
     ro.vendor.display.cabl=2 \
@@ -183,8 +181,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.mm.enable.qcom_parser=13631487 \
     vendor.vidc.enc.disable_bframes=1 \
     vendor.vidc.dec.enable.downscalar=1 \
-    vendor.vidc.enc.disable.pq=true \
-    vendor.video.disable.ubwc=1
+    vendor.vidc.enc.disable.pq=true
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -211,8 +208,6 @@ PRODUCT_ODM_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.df.dev_name=rmnet_usb0 \
     persist.debug.coresight.config=stm-events \
-    persist.radio.VT_CAM_INTERFACE=2 \
-    persist.timed.enable=true \
     persist.vendor.qti.telephony.vt_cam_interface=1 \
     persist.vendor.radio.atfwd.start=true \
     persist.vendor.data.iwlan.enable=true \
@@ -222,7 +217,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.procedure_bytes=SKIP \
-    persist.backup.ntpServer=0.pool.ntp.org \
     persist.radio.multisim.config=dsds \
     ro.telephony.iwlan_operation_mode=legacy \
     ro.telephony.default_network=22,22 \
@@ -278,9 +272,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
-    ro.surface_flinger.max_virtual_display_dimension=4096 \
-    ro.surface_flinger.supports_background_blur=1 \
-    ro.sf.blurs_are_expensive=1
+    ro.surface_flinger.max_virtual_display_dimension=4096
 
 # Thermal configs path
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -290,7 +282,3 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0
-
-# Zygote preforking
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.device_config.runtime_native.usap_pool_enabled=true

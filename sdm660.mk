@@ -45,9 +45,6 @@ $(call inherit-product-if-exists, vendor/gapps/common/common-vendor.mk)
 # Common Tree Path
 COMMON_PATH := device/xiaomi/sdm660-common
 
-# Inherit properties
-$(call inherit-product, $(COMMON_PATH)/common_prop.mk)
-
 # A/B
 ifeq ($(ENABLE_AB), true)
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -601,3 +598,6 @@ PRODUCT_PACKAGES += \
     TucumaSettings \
     init.camera.sh \
     init.camera.rc
+
+# Vendor properties
+-include $(COMMON_PATH)/vendor_prop.mk

@@ -46,7 +46,7 @@ $(call inherit-product-if-exists, vendor/gapps/common/common-vendor.mk)
 COMMON_PATH := device/xiaomi/sdm660-common
 
 # Inherit properties ($PATH_PROP)
-TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
 
 # A/B

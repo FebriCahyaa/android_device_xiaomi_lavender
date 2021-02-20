@@ -120,8 +120,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # CNE & DPM
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.vendor.cne.feature=1 \
-    persist.vendor.dpm.feature=1
+    persist.vendor.cne.feature=1
 
 # Codec2 switch
 PRODUCT_PROPERTY_OVERRIDES += \

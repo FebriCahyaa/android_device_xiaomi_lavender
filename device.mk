@@ -246,6 +246,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
+    init.performance_level.rc \
     init.target.rc \
     ueventd.qcom.rc \
     fstab.qcom \

@@ -107,11 +107,11 @@ PRODUCT_COPY_FILES += \
     
 # DeviceSettings
 PRODUCT_PACKAGES += \
-   DeviceSettings
+   XiaomiParts
 
 # DeviceDoze
 PRODUCT_PACKAGES += \
-    DeviceDoze
+    XiaomiDoze
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \

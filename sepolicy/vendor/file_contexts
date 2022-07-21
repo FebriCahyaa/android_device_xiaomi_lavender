@@ -12,12 +12,17 @@
 /firmware                                       u:object_r:firmware_file:s0
 /bt_firmware                                    u:object_r:bt_firmware_file:s0
 
-<<<<<<< HEAD
+# Hall Switch
+/sys/module/hall/parameters(/.*)?                                                                                           u:object_r:hall_dev:s0
+
+# Haptics control
+/sys/module/qti_haptics/parameters/vmax_mv_override										u:object_r:sysfs_vibrator:s0
+
 # Hexagon DSP-side executable needed for Halide operation
 # This is labeled as public_adsprpcd_file as it needs to be read by apps
 # (e.g. Google Camera App)
 /mnt/vendor/dsp/fastrpc_shell_3                 u:object_r:public_adsprpcd_file:s0
-=======
+
 # FPC Fingerprint
 /data/vendor/fpc(/.*)?                                                                                                      u:object_r:fingerprint_vendor_data_file:s0
 /(mnt/vendor)/persist/fpc(/.*)?                                                                                             u:object_r:persist_fingerprint_file:s0

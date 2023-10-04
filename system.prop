@@ -1,21 +1,28 @@
-# QC framework value-adds
-ro.vendor.qti.va_aosp.support=1
+# ART
+dalvik.vm.dex2oat-filter=quicken
+dalvik.vm.image-dex2oat-filter=quicken
+dalvik.vm.dex2oat64.enabled=true
+pm.dexopt.first-boot=quicken
+pm.dexopt.bg-dexopt=everything
 
 # CNE
 persist.vendor.cne.feature=1
 
+# Dirac
+ro.audio.soundfx.dirac=true 
+persist.audio.dirac.speaker=true 
+persist.dirac.acs.controller=qem 
+persist.dirac.acs.ignore_error=1 
+persist.dirac.acs.storeSettings=1
+
 # Disable Skia tracing by default
 debug.hwui.skia_atrace_enabled=false
 
-# ART
-dalvik.vm.dex2oat-filter=quicken
-dalvik.vm.image-dex2oat-filter=quicken
+# Disable vsync for cpu rendered apps
+debug.cpurend.vsync=false
 
 # Graphics
 debug.sf.enable_hwc_vds=0
-
-# Dex
-dalvik.vm.dex2oat64.enabled=true
 
 # Logs
 persist.log.tag.AnalyticsService=S
@@ -30,24 +37,13 @@ persist.log.tag.b/223498680=S
 persist.log.tag.TrafficStats=S
 persist.log.tag.ContrastColorUtil=S
 
+# QC framework value-adds
+ro.vendor.qti.va_aosp.support=1
+
 # Radio
 DEVICE_PROVISIONED=1
 ril.subscription.types=NV,RUIM
 telephony.lteOnCdmaDevice=1
 
-# Dexopt
-pm.dexopt.first-boot=quicken
-pm.dexopt.bg-dexopt=everything
-
-# Disable vsync for cpu rendered apps
-debug.cpurend.vsync=false
-
 # Watchdog
 ro.hw_timeout_multiplier=3
-
-# Dirac
-ro.audio.soundfx.dirac=true 
-persist.audio.dirac.speaker=true 
-persist.dirac.acs.controller=qem 
-persist.dirac.acs.ignore_error=1 
-persist.dirac.acs.storeSettings=1

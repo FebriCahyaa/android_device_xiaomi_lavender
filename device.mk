@@ -282,6 +282,10 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# Packages
+PRODUCT_PACKAGES += \
+    Aperture
+
 # Perf
 PRODUCT_PACKAGES += \
     libpsi.vendor \

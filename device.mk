@@ -410,6 +410,11 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     rild
 
+# Remove some packages
+# We have less storage
+PRODUCT_PACKAGES += \
+    RemovePackages    
+    
 # Sensors
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0 \

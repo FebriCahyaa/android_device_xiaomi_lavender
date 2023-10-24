@@ -151,6 +151,18 @@ persist.vendor.ims.disableDebugLogs=1
 persist.vendor.ims.disableIMSLogs=1
 persist.vendor.ims.disableQXDMLogs=1
 
+# Touch Props
+touch.size.scale=1
+touch.size.bias=0 
+touch.distance.calibration=none 
+touch.distance.scale=0 
+touch.coverage.calibration=box 
+touch.gestureMode=spots 
+MultitouchSettleInterval=1ms 
+MultitouchMinDistance=1px 
+TapInterval=1ms
+TapSlop=1px
+
 # Media
 media.stagefright.enable-aac=true
 media.stagefright.enable-http=true

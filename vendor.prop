@@ -139,6 +139,9 @@ debug.sdm.support_writeback=0
 vendor.display.idle_time=32767
 debug.sdm.support_writeback=0
 
+# Dalvik
+dalvik.vm.systemuicompilerfilter=speed
+
 # DRM
 drm.service.enabled=true
 

@@ -25,12 +25,6 @@ PRODUCT_SHIPPING_API_LEVEL := 28
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService
-
-# Speed up apps
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Settings \
-    SystemUI \
-    Launcher3QuickStep \
     
 # Audio
 PRODUCT_PACKAGES += \

@@ -138,6 +138,7 @@ ro.vendor.display.cabl=0
 debug.sdm.support_writeback=0
 vendor.display.idle_time=32767
 debug.sdm.support_writeback=0
+vendor.display.use_smooth_motion=1
 
 # Dalvik
 dalvik.vm.systemuicompilerfilter=speed

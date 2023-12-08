@@ -95,6 +95,8 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_LLVM_BINUTILS := false
 TARGET_KERNEL_CONFIG := lavender_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/lavender
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000 # 64 MB

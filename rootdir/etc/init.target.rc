@@ -68,11 +68,6 @@ on boot
     chmod 0666 /sys/class/thermal/thermal_message/temp_state
     chown system system /sys/class/thermal/thermal_message/temp_state
 
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/foreground/cpus 0-7
-    write /dev/cpuset/foreground/boost/cpus 0-7
-    write /dev/cpuset/background/cpus 0-7
-    write /dev/cpuset/system-background/cpus 0-7
     ####Regionalization config and prop files####
     chmod 0644 /persist/speccfg/spec
     chmod 0644 /persist/speccfg/devicetype

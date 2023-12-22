@@ -98,22 +98,24 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Display
 PRODUCT_PACKAGES += \
-    android.frameworks.displayservice@1.0_32 \
+    gralloc.sdm660 \
+    hwcomposer.sdm660 \
+    libdisplayconfig \
+    libtinyxml \
+    memtrack.sdm660 \
+    libqdMetaData \
+    vendor.display.config@2.0 \
+    vendor.display.config@2.0.vendor
+
+PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0 \
     android.frameworks.displayservice@1.0.vendor \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    android.frameworks.displayservice@1.0 \
-    gralloc.sdm660 \
-    hwcomposer.sdm660 \
-    libdisplayconfig \
-    libtinyxml \
-    memtrack.sdm660 \
-    vendor.display.config@2.0 \
-    vendor.display.config@2.0_vendor
+    android.hardware.memtrack@1.0-service
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \

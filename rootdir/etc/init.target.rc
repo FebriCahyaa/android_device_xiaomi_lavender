@@ -131,12 +131,16 @@ on boot
 
     # Touchpanel
     chown system system /sys/touchpanel/capacitive_keys
-    chown system system /sys/touchpanel/double_tap
     chown system system /sys/touchpanel/reversed_keys
 
     chmod 0664 /sys/touchpanel/capacitive_keys
-    chmod 0664 /sys/touchpanel/double_tap
     chmod 0664 /sys/touchpanel/reversed_keys
+    
+    # Double Tap to Wake
+    chown system system /proc/tp_gesture
+    chown system system /sys/touchpanel/double_tap
+    chmod 0660 /proc/tp_gesture
+    chmod 0660 /sys/touchpanel/double_tap
     
     # SmartCharging
     chown system system /sys/class/power_supply/battery/input_suspend

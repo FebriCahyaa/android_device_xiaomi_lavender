@@ -1,0 +1,83 @@
+# ART
+dalvik.vm.dex2oat-filter=quicken
+dalvik.vm.image-dex2oat-filter=quicken
+pm.dexopt.first-boot=quicken
+pm.dexopt.bg-dexopt=everything
+
+# CNE
+persist.vendor.cne.feature=1
+
+# Dirac
+ro.audio.soundfx.dirac=true 
+persist.audio.dirac.speaker=true 
+persist.dirac.acs.controller=qem 
+persist.dirac.acs.ignore_error=1 
+persist.dirac.acs.storeSettings=1
+
+# Disable Skia tracing by default
+debug.hwui.skia_atrace_enabled=false
+
+# Disable vsync for cpu rendered apps
+debug.cpurend.vsync=false
+
+# Graphics
+debug.sf.enable_hwc_vds=0
+
+# Logs
+persist.log.tag.AnalyticsService=S
+persist.log.tag.KernelCpuUidActiveTimeReader=S
+persist.log.tag.Tracer=S
+persist.log.tag.NearbySharing=S
+persist.log.tag.IntervalStats=S
+persist.log.tag.CompatibilityChangeReporter=S
+persist.log.tag.SQLiteLog=S
+persist.log.tag.wificond=S
+persist.log.tag.b/223498680=S
+persist.log.tag.TrafficStats=S
+persist.log.tag.ContrastColorUtil=S
+
+# QC framework value-adds
+ro.vendor.qti.va_aosp.support=1
+
+# Radio
+DEVICE_PROVISIONED=1
+ril.subscription.types=NV,RUIM
+telephony.lteOnCdmaDevice=1
+
+# Watchdog
+ro.hw_timeout_multiplier=3
+
+# Disable vsync for cpu rendered apps
+debug.cpurend.vsync=false
+
+# Iorapd
+ro.iorapd.enable=false
+iorapd.perfetto.enable=false
+iorapd.readahead.enable=false
+persist.device_config.runtime_native_boot.iorap_readahead_enable=false
+
+# Increase Scrool Smoothness
+ro.vendor.qti.cgroup_follow.enable=true 
+persist.vendor.qti.inputopts.enable=true 
+persist.vendor.qti.inputopts.movetouchslop=0.6 
+ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
+
+# Increase Ram Managment
+ro.config.fha_enable=true 
+ro.sys.fw.bg_apps_limit=32 
+ro.config.dha_cached_max=16 
+ro.config.dha_empty_max=42 
+ro.config.dha_empty_init=32 
+ro.config.dha_lmk_scale=0.545 
+ro.config.dha_th_rate=2.3 
+ro.config.sdha_apps_bg_max=64
+ro.config.sdha_apps_bg_min=8
+
+# Power Saving
+power.saving.mode=1
+pm.sleep_mode=1 
+ro.vold.umsdirtyratio=20
+ro.ril.disable.power.collapse=0
+
+# Maintainer Superior Extended for Lavender
+ro.spos.maintainer=FebriCahyaa

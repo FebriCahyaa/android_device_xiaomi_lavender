@@ -11,9 +11,6 @@ from pathlib import Path
 
 FILES = [Path(file) for file in [
     "proprietary-files.txt",
-    "proprietary-files-fm.txt",
-    "proprietary-files-ir.txt",
-    "proprietary-files-lavender.txt",
 ]]
 
 setlocale(LC_ALL, "C")

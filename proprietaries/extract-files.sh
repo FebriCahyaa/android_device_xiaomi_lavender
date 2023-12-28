@@ -1,7 +1,6 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
+# Copyright (C) 2020 The PixelExperience Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -55,9 +54,7 @@ fi
 
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
+
 extract "${MY_DIR}/proprietaries/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-extract "${MY_DIR}/proprietaries/proprietary-files-lavender.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-extract "${MY_DIR}/proprietaries/proprietary-files-fm.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-extract "${MY_DIR}/proprietaries/proprietary-files-ir.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/proprietaries/setup-makefiles.sh"

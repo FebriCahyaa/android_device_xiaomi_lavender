@@ -1,15 +1,14 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
+# Copyright (C) 2020 The PixelExperience Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 set -e
 
-export DEVICE=lavender
-export VENDOR=xiaomi
+DEVICE=lavender
+VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -24,23 +23,13 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
-# Initialize the helper for device
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
+# Initialize the helper
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
 # Warning headers and guards
-write_headers "${DEVICE}"
+write_headers
 
-# The standard device blobs
 write_makefiles "${MY_DIR}/proprietaries/proprietary-files.txt" true
-write_makefiles "${MY_DIR}/proprietariesproprietary-files-lavender.txt" true
-
-printf "\n%s\n" "ifeq (\$(BOARD_HAVE_QCOM_FM),true)" >> "${PRODUCTMK}"
-write_makefiles "${MY_DIR}/proprietaries/proprietary-files-fm.txt" true
-echo "endif" >> "${PRODUCTMK}"
-
-printf "\n%s\n" "ifeq (\$(BOARD_HAVE_IR),true)" >> "${PRODUCTMK}"
-write_makefiles "${MY_DIR}/proprietaries/proprietary-files-ir.txt" true
-echo "endif" >> "${PRODUCTMK}"
 
 # Finish
 write_footers

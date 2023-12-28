@@ -144,11 +144,11 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/bt_firmware:/bt_firmware
 
 # Properties
-TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/properties/system.prop
-TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/properties/system_ext.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
-TARGET_PRODUCT_PROP +=$(DEVICE_PATH)/properties/product.prop
+TARGET_ODM_PROP += $(DEVICE_PATH)/props/odm.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/props/system.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/props/system_ext.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/props/vendor.prop
+TARGET_PRODUCT_PROP +=$(DEVICE_PATH)/props/product.prop
 
 #  Power
 TARGET_USES_INTERACTION_BOOST := true
@@ -170,7 +170,7 @@ BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/configs/seccomp
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
+#BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 
 # Security Patch

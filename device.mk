@@ -40,7 +40,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # QCOM namepsaces
 QCOM_SOONG_NAMESPACE := \
-    $(LOCAL_PATH)/qcom-caf
+    $(LOCAL_PATH)/oss-hals
 
 # Permissions
 PRODUCT_COPY_FILES += \

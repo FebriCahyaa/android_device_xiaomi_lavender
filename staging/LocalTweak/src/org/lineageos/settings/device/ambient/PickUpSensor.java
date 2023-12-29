@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.xiaomi.parts.ambient;
+package org.lineageos.settings.device.ambient;
 
 import android.content.Context;
 import android.hardware.Sensor;

@@ -72,6 +72,37 @@ function 8937_sched_dcvs_eas()
 
 }
 
+function configure_automotive_sku_parameters() {
+
+    echo 1036800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    echo 1056000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    echo 1171200 > /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq
+    echo 1785600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo 902400000  > /sys/class/devfreq/soc\:qcom,cpu0-cpu-l3-lat/min_freq
+    echo 902400000  > /sys/class/devfreq/soc\:qcom,cpu4-cpu-l3-lat/min_freq
+    echo 902400000  > /sys/class/devfreq/soc\:qcom,cpu7-cpu-l3-lat/min_freq
+    echo 1612800000 > /sys/class/devfreq/soc\:qcom,cpu0-cpu-l3-lat/max_freq
+    echo 1612800000 > /sys/class/devfreq/soc\:qcom,cpu4-cpu-l3-lat/max_freq
+    echo 1612800000 > /sys/class/devfreq/soc\:qcom,cpu7-cpu-l3-lat/max_freq
+#read feature id from nvram
+reg_val=`cat /sys/devices/platform/soc/780130.qfprom/qfprom0/nvmem | od -An -t d4`
+feature_id=$(((reg_val >> 20) & 0xFF))
+log -t BOOT -p i "feature id '$feature_id'"
+if [ $feature_id == 0 ]; then
+       echo " SKU Configured : SA8155P"
+       echo 2131200 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+       echo 2419200 > /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq
+       echo 0 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
+elif [ $feature_id == 1 ]; then
+        echo "SKU Configured : SA8150P"
+        echo 1920000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+        echo 2227200 > /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq
+        echo 3 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
+else
+        echo "unknown feature_id value" $feature_id
+fi
+}
+
 function configure_sku_parameters() {
 
 #read feature id from nvram
@@ -101,8 +132,9 @@ if [ $feature_id == 6 ]; then
 	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/min_freq
 	echo 1017600000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/max_freq
 	echo 3 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-	echo {class:ddr, res:fixed, val: 1016} > /sys/kernel/debug/aop_send_message
+	echo {class:ddr, res:capped, val: 1016} > /sys/kernel/debug/aop_send_message
 	setprop vendor.sku_identified 1
+	setprop vendor.sku_name "SA6145"
 elif [ $feature_id == 5 ]; then
 	echo "SKU Configured : SA6150"
 	echo 748800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
@@ -126,9 +158,9 @@ elif [ $feature_id == 5 ]; then
 	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/min_freq
 	echo 1363200000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/max_freq
 	echo 2 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-	echo {class:ddr, res:fixed, val: 1333} > /sys/kernel/debug/aop_send_message
-	setprop vendor.sku_identified 1
-elif [ $feature_id == 4 || $feature_id == 3 ]; then
+	echo {class:ddr, res:capped, val: 1333} > /sys/kernel/debug/aop_send_message
+	setprop vendor.sku_name "SA6150"
+elif [ $feature_id == 4 ] || [ $feature_id == 3 ]; then
 	echo "SKU Configured : SA6155"
 	echo 748800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 	echo 748800 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
@@ -151,10 +183,11 @@ elif [ $feature_id == 4 || $feature_id == 3 ]; then
 	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/min_freq
 	echo 1363200000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/max_freq
 	echo 0 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-	echo {class:ddr, res:fixed, val: 1555} > /sys/kernel/debug/aop_send_message
+	echo {class:ddr, res:capped, val: 1555} > /sys/kernel/debug/aop_send_message
 	setprop vendor.sku_identified 1
+	setprop vendor.sku_name "SA6155"
 else
-	echo "unknown feature_id value" $feature_id
+	echo "SKU Configured : SA6155"
 	echo 748800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 	echo 748800 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
 	echo 748800 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
@@ -176,8 +209,9 @@ else
 	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/min_freq
 	echo 1363200000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/max_freq
 	echo 0 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-	echo {class:ddr, res:fixed, val: 1555} > /sys/kernel/debug/aop_send_message
-        setprop vendor.sku_identified 1
+	echo {class:ddr, res:capped, val: 1555} > /sys/kernel/debug/aop_send_message
+	setprop vendor.sku_identified 1
+	setprop vendor.sku_name "SA6155"
 fi
 }
 
@@ -329,6 +363,43 @@ function 8937_sched_dcvs_hmp()
     echo 50000 > /proc/sys/kernel/sched_freq_dec_notify
 
 }
+
+    for device in /sys/devices/platform/soc
+    do
+        for cpubw in $device/*cpu-cpu-ddr-bw/devfreq/*cpu-cpu-ddr-bw
+        do
+            echo "bw_hwmon" > $cpubw/governor
+            echo 50 > $cpubw/polling_interval
+            echo 762 > $cpubw/min_freq
+            echo "1525 3143 5859 7759 9887 10327 11863 13763" > $cpubw/bw_hwmon/mbps_zones
+            echo 4 > $cpubw/bw_hwmon/sample_ms
+            echo 85 > $cpubw/bw_hwmon/io_percent
+            echo 100 > $cpubw/bw_hwmon/decay_rate
+            echo 50 > $cpubw/bw_hwmon/bw_step
+            echo 20 > $cpubw/bw_hwmon/hist_memory
+            echo 0 > $cpubw/bw_hwmon/hyst_length
+            echo 80 > $cpubw/bw_hwmon/down_thres
+            echo 0 > $cpubw/bw_hwmon/guard_band_mbps
+            echo 250 > $cpubw/bw_hwmon/up_scale
+            echo 1600 > $cpubw/bw_hwmon/idle_mbps
+        done
+
+        for memlat in $device/*cpu*-lat/devfreq/*cpu*-lat
+        do
+            echo "mem_latency" > $memlat/governor
+            echo 10 > $memlat/polling_interval
+            echo 400 > $memlat/mem_latency/ratio_ceil
+        done
+
+        for latfloor in $device/*cpu*-ddr-latfloor*/devfreq/*cpu-ddr-latfloor*
+        do
+            echo "compute" > $latfloor/governor
+            echo 10 > $latfloor/polling_interval
+        done
+
+    done
+}
+
 target=`getprop ro.board.platform`
 
 function configure_zram_parameters() {
@@ -1502,6 +1573,13 @@ case "$target" in
                 # Enable timer migration to little cluster
                 echo 1 > /proc/sys/kernel/power_aware_timer_migration
 
+                case "$soc_id" in
+                        "277" | "278")
+                        # Start energy-awareness for 8976
+                        start energy-awareness
+                ;;
+                esac
+                
                 # Set Memory parameters
                 configure_memory_parameters
 
@@ -2380,16 +2458,34 @@ case "$target" in
             panel=${panel:2:4}
         fi
 
+        if [ $panel -gt 1080 ]; then
+            echo 2 > /proc/sys/kernel/sched_window_stats_policy
+            echo 5 > /proc/sys/kernel/sched_ravg_hist_size
+        else
+            echo 3 > /proc/sys/kernel/sched_window_stats_policy
+            echo 3 > /proc/sys/kernel/sched_ravg_hist_size
+        fi
+        
         #Apply settings for sdm660, sdm636,sda636
         case "$soc_id" in
                 "317" | "324" | "325" | "326" | "345" | "346" )
 
+            echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+            echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
+            echo 30 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
+            echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
+            echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
+            echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
+
+            # Setting b.L scheduler parameters
+            echo 96 > /proc/sys/kernel/sched_upmigrate
+            echo 90 > /proc/sys/kernel/sched_downmigrate
+            echo 140 > /proc/sys/kernel/sched_group_upmigrate
+            echo 120 > /proc/sys/kernel/sched_group_downmigrate
+            
             # cpuset settings
-            echo 0-7 > /dev/cpuset/top-app/cpus
-            echo 0-3,6-7 > /dev/cpuset/foreground/cpus
-            echo 0-1 > /dev/cpuset/background/cpus
+            echo 0-3 > /dev/cpuset/background/cpus
             echo 0-3 > /dev/cpuset/system-background/cpus
-            echo 0-3 > /dev/cpuset/restricted/cpus
 
             # disable thermal bcl hotplug to switch governor
             echo 0 > /sys/module/msm_thermal/core_control/enabled

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.xiaomi.parts.ambient;
+package org.lineageos.settings.device.ambient;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -35,7 +35,7 @@ import android.os.Vibrator;
 import androidx.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
-import com.xiaomi.parts.utils.AmbientUtils;
+import org.lineageos.settings.device.utils.AmbientUtils;
 
 public class SensorsDozeService extends Service {
 

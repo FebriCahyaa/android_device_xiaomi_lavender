@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.xiaomi.parts.ambient;
+package org.lineageos.settings.device.ambient;
 
 import android.app.ActionBar;
 import android.content.Context;
@@ -30,8 +30,8 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import com.xiaomi.parts.utils.AmbientUtils;
-import com.xiaomi.parts.R;
+import org.lineageos.settings.device.utils.AmbientUtils;
+import org.lineageos.settings.device.R;
 
 public class AmbientGesturePreferenceFragment extends PreferenceFragment {
 

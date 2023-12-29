@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-package com.xiaomi.parts.ambient;
+package org.lineageos.settings.device.ambient;
 
 import android.os.Bundle;
-import com.xiaomi.parts.R;
+import org.lineageos.settings.device.R;
 import android.preference.PreferenceActivity;
 
 public class AmbientGesturePreferenceActivity extends PreferenceActivity {

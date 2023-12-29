@@ -337,11 +337,7 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
-
-# Perfd (dummy)
-PRODUCT_PACKAGES += \
-    libqti-perfd-client
-
+    
 PRODUCT_PACKAGES += \
     NotchBarKiller
 
@@ -351,10 +347,7 @@ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-im
 
 # Power
 PRODUCT_PACKAGES += \
-     android.hardware.power-service.lavender-libperfmgr
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+     android.hardware.power-service-qti
 
 # Protobuf
 PRODUCT_PACKAGES += \
@@ -365,6 +358,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# Performance
+PRODUCT_PACKAGES += \
+    powerctl 
+    
 # QCOM
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/system_ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml \

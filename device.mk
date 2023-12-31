@@ -347,6 +347,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libjson
 
+# QCOM namepsaces
+QCOM_SOONG_NAMESPACE := \
+    $(LOCAL_PATH)/oss-hals
+    
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.4.vendor \

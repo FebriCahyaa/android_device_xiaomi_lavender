@@ -104,6 +104,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
+    
+# DeviceSettings
+PRODUCT_PACKAGES += \
+   XiaomiParts
+
+# DeviceDoze
+PRODUCT_PACKAGES += \
+    XiaomiDoze
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
@@ -154,10 +162,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/displayconfig/display_id_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_0.xml
 
-# Doze
-PRODUCT_PACKAGES += \
-    XiaomiDoze
-
 # DPM
 PRODUCT_PACKAGES += \
     libshim_dpmframework
@@ -174,6 +178,10 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio \
     qcom.fmradio.xml
+
+# Gcam
+PRODUCT_PACKAGES += \
+    GCam
 
 # fwk-detect
 PRODUCT_PACKAGES += \
@@ -236,8 +244,10 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
+    init.safailnet.rc \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
+    init.performance_level.rc \
     init.target.rc \
     ueventd.qcom.rc \
     fstab.qcom \
@@ -343,6 +353,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+    
 # QMI
 PRODUCT_PACKAGES += \
     libjson

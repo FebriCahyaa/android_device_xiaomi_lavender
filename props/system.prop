@@ -31,3 +31,7 @@ arm64.memtag.process.system_server=off
 
 # Feature flags
 persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
+
+# LMKD
+ro.config.low_ram=false
+ro.lmk.log_stats=true

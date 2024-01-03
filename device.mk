@@ -349,7 +349,7 @@ PRODUCT_PACKAGES += \
 
 # QCOM namepsaces
 QCOM_SOONG_NAMESPACE := \
-    $(LOCAL_PATH)/oss-hals
+    $(LOCAL_PATH)/qcom-caf
     
 # RIL
 PRODUCT_PACKAGES += \

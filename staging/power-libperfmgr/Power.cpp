@@ -72,6 +72,11 @@ Power::Power(std::shared_ptr<HintManager> hm)
 
     // Now start to take powerhint
     ALOGI("PowerHAL ready to process hints");
+    } 
+    
+    // defines mode path of KProfiles
+    #define KPROFILES_PATH "/sys/kernel/kprofiles/kp_mode");
+   
 }
 
 void endAllHints(std::shared_ptr<HintManager> mHintManager) {

@@ -261,6 +261,10 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor \
     android.hardware.keymaster@4.0.vendor
 
+# KProfiles
+PRODUCT_PACKAGES += \
+    KProfiles
+    
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.xiaomi_sdm660

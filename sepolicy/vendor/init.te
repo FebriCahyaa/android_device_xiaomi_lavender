@@ -1,0 +1,2 @@
+# Kprofile
+allow init sysfs:file { setattr };

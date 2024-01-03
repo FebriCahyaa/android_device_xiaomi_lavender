@@ -118,6 +118,12 @@ on boot
     chown system system /persist/speccfg/submask
     chown system system /persist/speccfg/partition
 
+    # Allow system to manipulate kprofiles modes and parameters
+    chown system system /sys/module/kprofiles/parameters/auto_kp
+    chmod 0660 /sys/module/kprofiles/parameters/auto_kp
+    chown system system /sys/kernel/kprofiles/kp_mode
+    chmod 0660 /sys/kernel/kprofiles/kp_mode
+    
 #Create folder dump yuv images while debugging
     mkdir /data/vendor/camera 0770 camera camera
 

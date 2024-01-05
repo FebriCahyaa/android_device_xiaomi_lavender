@@ -24,7 +24,7 @@ device = 'lavender'
 vendor = 'xiaomi'
 
 lines = [ line for line in open('proprietary-files-caf.txt', 'r') ]
-vendorPath = '../../../vendor/' + vendor + '/' + device + '/proprietary'
+vendorPath = '../../../../vendor/' + vendor + '/' + device + '/proprietary'
 needSHA1 = False
 
 def cleanup():

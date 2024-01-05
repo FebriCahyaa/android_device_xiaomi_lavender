@@ -18,6 +18,9 @@ import common
 def FullOTA_InstallEnd(info):
   OTA_InstallEnd(info)
 
+def NoticeForPartitonUsers(info)
+  OTA_InstallEnd(info)
+  
 def IncrementalOTA_InstallEnd(info):
   OTA_InstallEnd(info)
 
@@ -33,3 +36,19 @@ def AddImage(info, basename, dest):
 def OTA_InstallEnd(info):
   info.script.Print("Patching device-tree and verity images...")
   AddImage(info, "vbmeta.img", "/dev/block/bootdevice/by-name/vbmeta")
+
+def NoticeForPartitonUsers(info):
+  info.script.Print("Notice: If you encounter any errors")
+  info.script.Print("'please notify developer")
+  info.script.Print("can provide information via support group")
+  info.script.Print("Thanks for Support")
+  info.script.Print("Have a nice day.")
+  info.script.Print(" ")
+  info.script.Print("If you are coming from a Dynamic partition ROM (please")
+  info.script.Print("change your TWRP and Clean Flash), thank you.")
+  info.script.Print("Linux Kernel 4.4 based ROM")
+  info.script.Print(" ")
+  info.script.Print(" ")
+  info.script.Print("Enjoy!")
+  info.script.Print("Yours, FebriCahyaa")
+  info.script.Print("----------------------------------------------")    

@@ -35,6 +35,8 @@ persist.log.tag.wificond=S
 persist.log.tag.b/223498680=S
 persist.log.tag.TrafficStats=S
 persist.log.tag.ContrastColorUtil=S
+persist.log.tag.OpenGLRenderer=S
+persist.log.tag.ultrasound_extn=S
 
 # QC framework value-adds
 ro.vendor.qti.va_aosp.support=1

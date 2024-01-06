@@ -606,3 +606,7 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     ioprio rt 4
     task_profiles ProcessCapacityHigh HighPerformance
     onrestart restart audioserver
+
+# Restrict permissions to socket file 
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix        

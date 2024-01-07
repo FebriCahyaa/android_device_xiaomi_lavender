@@ -26,9 +26,6 @@ PRODUCT_COPY_FILES += \
 # RRO configuration
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
-# Set boot SPL
-BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += device/xiaomi/lavender \
                             hardware/google/interfaces \
@@ -210,9 +207,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
     libqti_vndfwk_detect.vendor
-
-# Vendor SPL
-VENDOR_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
 
 # GPS / Location
 PRODUCT_PACKAGES += \

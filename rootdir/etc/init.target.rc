@@ -59,6 +59,8 @@ on post-fs-data
     mkdir /data/tombstones/dsps 0771 system system
 
 on boot
+    # GPU boost
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/min_pwrlevel
     start vendor.rmt_storage
     start rfs_access
 

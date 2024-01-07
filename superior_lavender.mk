@@ -17,7 +17,6 @@ SUPERIOR_OFFICIAL := true
 
 # Inherit from lavender device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
-$(call inherit-product, $(LOCAL_PATH)/device-hidl.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := superior_lavender

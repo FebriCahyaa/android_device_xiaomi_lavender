@@ -73,6 +73,7 @@ vendor.audio.feature.wsa.enable=false
 vendor.audio.feature.audiozoom.enable=false
 vendor.audio.feature.snd_mon.enable=true
 vendor.audio.adm.buffering.ms=6
+persist.audio.dirac.speaker=true
 
 # Bluetooth
 vendor.qcom.bluetooth.soc=cherokee
@@ -110,6 +111,15 @@ ro.hardware.vulkan=sdm660
 # DRM Service
 drm.service.enabled=true
 media.mediadrmservice.enable=true
+
+# Dirac algo tsx 9/12
+persist.dirac.acs.controller=qem
+persist.dirac.acs.storeSettings=1
+persist.dirac.acs.ignore_error=1
+
+# Dirac headset effect
+ro.audio.soundfx.dirac=true
+persist.audio.dirac.speaker=true
 
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp

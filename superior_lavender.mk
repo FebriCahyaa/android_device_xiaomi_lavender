@@ -12,28 +12,32 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit from lavender device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-# Inherit some common AfterLife stuff
-$(call inherit-product, vendor/afterlife/config/common_full_phone.mk)
+# Inherit some common Superior stuff.
+$(call inherit-product, vendor/superior/config/common.mk)
+SUPERIOR_EDITION := Vanilla
+SPOS_MAINTAINER := FebriCahyaa
 
-# AfterLife flags
-AFTERLIFE_MAINTAINER := FebriCahyaa
-
-# Offline Charging
-USE_PIXEL_CHARGING := true
-
-# disable/enable blur support, default is false
+# Additional stuff for this product.
+TARGET_INCLUDE_PIXEL_CHARGER := true
+TARGET_GAPPS_ARCH := arm64
+TARGET_INCLUDE_STOCK_ARCORE := false
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
 TARGET_SUPPORTS_BLUR := false
+
+# Additional stuff for this package
+USE_AOSP_DIALER := true
+USE_DOTGALLERY := true
+USE_MOTO_CALCULATOR := true
+TARGET_INCLUDE_MATLOG := true
 
 # Target from device
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_SUPPORTS_QUICK_TAP := true
 
-# TouchGestures
-TARGET_SUPPORTS_TOUCHGESTURES := true
-
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := afterlife_lavender
+PRODUCT_NAME := superior_lavender
 PRODUCT_DEVICE := lavender
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi

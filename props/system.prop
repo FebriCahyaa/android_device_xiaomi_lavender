@@ -22,3 +22,6 @@ ro.netflix.bsp_rev=Q660-13149-1
 persist.sys.fflag.override.settings_network_and_internet_v2=true
 ril.subscription.types=NV,RUIM
 telephony.lteOnCdmaDevice=1
+
+# Maintainer Superior Extended for Lavender
+ro.spos.maintainer=FebriCahyaa
